@@ -1,0 +1,116 @@
+id: /subscriptions/c13da0c2-b519-4248-a211-52095dd580d0/resourceGroups/converter-test/providers/Microsoft.App/containerapps/frontend
+identity:
+  type: UserAssigned
+  userAssignedIdentities:
+    ? /subscriptions/c13da0c2-b519-4248-a211-52095dd580d0/resourcegroups/converter-test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/frontend
+    : clientId: 6ee66144-4977-4fb6-9209-cdd7c05b75c9
+      principalId: 31f63ea5-1259-48e9-ab80-74c87fb890c7
+location: Central India
+name: frontend
+properties:
+  configuration:
+    activeRevisionsMode: Single
+    dapr:
+      appId: frontend
+      appPort: 8080
+      appProtocol: http
+      enableApiLogging: false
+      enabled: true
+      httpMaxRequestSize: null
+      httpReadBufferSize: null
+      logLevel: info
+    identitySettings: []
+    ingress:
+      additionalPortMappings: null
+      allowInsecure: false
+      clientCertificateMode: null
+      corsPolicy: null
+      customDomains: null
+      exposedPort: 0
+      external: true
+      fqdn: frontend.jollybay-00df9fdb.centralindia.azurecontainerapps.io
+      ipSecurityRestrictions: null
+      stickySessions: null
+      targetPort: 8080
+      targetPortHttpScheme: null
+      traffic:
+      - latestRevision: true
+        weight: 100
+      transport: Auto
+    maxInactiveRevisions: null
+    registries:
+    - identity: /subscriptions/c13da0c2-b519-4248-a211-52095dd580d0/resourcegroups/converter-test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/frontend
+      passwordSecretRef: ''
+      server: convertergkem.azurecr.io
+      username: ''
+    runtime: null
+    secrets:
+    - name: client-secret
+    service: null
+  customDomainVerificationId: 4ED0BAC1E63DA35D8C520F1415FE352BA8E5A14BE025472EB87585DCA29F836D
+  delegatedIdentities: []
+  environmentId: /subscriptions/c13da0c2-b519-4248-a211-52095dd580d0/resourceGroups/converter-test/providers/Microsoft.App/managedEnvironments/converter-app-env
+  eventStreamEndpoint: https://centralindia.azurecontainerapps.dev/subscriptions/c13da0c2-b519-4248-a211-52095dd580d0/resourceGroups/converter-test/containerApps/frontend/eventstream
+  latestReadyRevisionName: frontend--kre2zme
+  latestRevisionFqdn: frontend--kre2zme.jollybay-00df9fdb.centralindia.azurecontainerapps.io
+  latestRevisionName: frontend--kre2zme
+  managedEnvironmentId: /subscriptions/c13da0c2-b519-4248-a211-52095dd580d0/resourceGroups/converter-test/providers/Microsoft.App/managedEnvironments/converter-app-env
+  outboundIpAddresses:
+  - 20.207.113.244
+  - 20.207.114.82
+  - 20.207.113.247
+  - 20.207.113.242
+  - 4.188.105.82
+  - 4.213.216.206
+  - 4.188.110.244
+  - 4.186.33.69
+  - 4.186.36.246
+  - 4.186.37.141
+  - 20.204.252.66
+  - 20.204.255.44
+  - 20.207.112.119
+  - 20.204.254.22
+  - 4.213.194.124
+  - 4.213.194.130
+  - 4.213.194.85
+  - 4.213.194.149
+  - 4.213.194.114
+  - 4.213.194.154
+  - 4.213.221.191
+  patchingMode: Automatic
+  provisioningState: Succeeded
+  runningStatus: Running
+  template:
+    containers:
+    - image: convertergkem.azurecr.io/services/frontend:v10
+      imageType: ContainerImage
+      name: frontend
+      volumeMounts:
+      - volumeName: simple 
+        mountPath: /mnt/azure
+      resources:
+        cpu: 0.5
+        ephemeralStorage: 2Gi
+        memory: 1Gi
+    initContainers: null
+    revisionSuffix: ''
+    scale:
+      maxReplicas: 10
+      minReplicas: null
+      rules: null
+    serviceBinds: null
+    terminationGracePeriodSeconds: null
+    volumes: 
+    - name: simple 
+      storageName: new
+      storageType: AzureFile
+  workloadProfileName: Consumption
+resourceGroup: converter-test
+systemData:
+  createdAt: '2024-08-03T13:19:20.9519548'
+  createdBy: gkemgcp@outlook.com
+  createdByType: User
+  lastModifiedAt: '2024-08-05T13:45:30.2178876'
+  lastModifiedBy: gkemgcp@outlook.com
+  lastModifiedByType: User
+type: Microsoft.App/containerApps

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Converter{% endblock %}
+
+{% block content %}
+  <!-- Services Section -->
+  <div class="services animate__animated animate__fadeInUp">
+    <a href="/video-to-audio" class="btn btn-primary service-btn">
+      <div>Video to Audio</div>
+      <i class="fas fa-file-audio icon"></i>
+      <div>🎥🎵</div>
+    </a>
+    <a href="/pdf-to-doc" class="btn btn-success service-btn">
+      <div>PDF to DOCX</div>
+      <i class="fas fa-file-pdf icon"></i>
+      <div>📄📝</div>
+    </a>
+    <a href="/text-to-speech" class="btn btn-warning service-btn">
+      <div>Text to Speech</div>
+      <i class="fas fa-volume-up icon"></i>
+      <div>📝🔊</div>
+    </a>
+  </div>
+{% endblock %}

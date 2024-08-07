@@ -1,0 +1,7 @@
+**/venv/
+venv 
+__pycache__/
+**/__pycache__/
+video-to-audio-converter/utils/__pycache__/
+text-to-speech-converter/utils/__pycache__/
+pdf-to-docx-converter/utils/__pycache__/

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Converter{% endblock %}</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+  <!-- Animate.css for Animations -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #ffafbd, #ffc3a0), url('https://via.placeholder.com/1500x1000') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .navbar {
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 10px 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+    .navbar-brand, .navbar-nav .nav-link {
+      color: #fff;
+    }
+    .header {
+      text-align: center;
+      margin-top: 50px;
+      animation: fadeInDown 1s;
+    }
+    .header h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      animation: fadeInDown 1.5s;
+    }
+    .header p {
+      font-size: 1.2rem;
+      animation: fadeInDown 2s;
+    }
+    .services {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      animation: fadeInUp 2s;
+    }
+    .service-btn {
+      width: 220px;
+      margin: 15px;
+      font-size: 1.2rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .service-btn i {
+      margin-top: 10px;
+      font-size: 2rem;
+    }
+    .service-btn:hover {
+      transform: scale(1.05);
+    }
+    .sign-in-btn, .user-info {
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      transition: background-color 0.2s;
+      border: none;
+    }
+    .sign-in-btn i, .user-info i {
+      margin-right: 5px;
+    }
+    .sign-in-btn:hover, .user-info:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+    .sign-in-btn:focus, .user-info:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    .footer {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+    .footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 1rem;
+    }
+    .content-container {
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 800px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .emoji {
+      font-size: 1.5rem;
+    }
+    .form-label {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .form-control-file {
+      border: 2px dashed #ffafbd;
+      border-radius: 5px;
+      padding: 20px;
+      background-color: #fff;
+    }
+    .btn-primary {
+      background-color: #ffafbd;
+      border-color: #ffafbd;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .btn-primary:hover {
+      background-color: #ff8c9e;
+      border-color: #ff8c9e;
+    }
+    .icon-large {
+      font-size: 3rem;
+      color: #ffafbd;
+    }
+    .card {
+      border: none;
+      border-radius: 10px;
+    }
+    .card-body {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            
+                 <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    {% for category, message in messages %}
+                        alert("{{ message }}"); // Simple alert for demonstration
+                    {% endfor %}
+                }); 
+            </script>
+              
+         
+        {% endif %}
+    {% endwith %} 
+  <!-- Navbar with Home Button and Conditional Google Sign-In/User Info -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('home') }}">Converter</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a>
+          </li>
+          {% if user_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link user-info" href="#">
+              <i class="fas fa-user"></i> {{ user_email }} 
+              <span class="ml-2" >
+                <a href="/.auth/logout?post_logout_redirect_uri=/home" style="color:red"><i class="fas fa-sign-out-alt" style="color:yellow"></i> Logout </a>
+              </span>
+            </a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link sign-in-btn" href="/.auth/login/google?post_login_redirect_uri=/home" >
+              <i class="fab fa-google"></i> Sign in with Google
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <div class="header">
+    <h1 class="animate__animated animate__fadeInDown">Converter</h1>
+    <p class="animate__animated animate__fadeInDown">Convert your files easily and quickly</p>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content-container">
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <strong>
+        Running in Azure Container Apps <br> 
+        <div class="footer-links">
+          <span>Hostname: {{ hostname }}</span>
+          <span>Instance: {{ instance_name }}</span>
+          <span>Revision ID: {{ revision_id }}</span>
+        </div>
+      </strong>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Google API -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    function googleSignIn() {
+      // Google Sign-In logic here
+      alert('Google Sign-In clicked');
+    }
+    
+    function logout() {
+      // Logout logic here
+      alert('Logout clicked');
+    }
+  </script>
+</body>
+</html>

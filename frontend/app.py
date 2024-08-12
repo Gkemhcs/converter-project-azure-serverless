@@ -149,7 +149,7 @@ def pdf_to_doc():
         os.makedirs(upload_folder, exist_ok=True)
         file.save(os.path.join(upload_folder, filename))
         flash('File successfully uploaded')
-        sas_url=send_request("pdf-to-doc-converter",filename)
+        sas_url=send_request("pdf-to-docx-converter",filename)
         conn = get_db_connection()
         cursor = conn.cursor()
         query = """

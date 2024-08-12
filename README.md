@@ -98,7 +98,7 @@ read GOOGLE_CLIENT_SECRET
 echo "enter the azure container registry name"
 read ACR_NAME 
 az deployment group create   --name converter --template-file bicep/main.bicep   \
---parameters converter.bicepparam \
+--parameters bicep/converter.bicepparam \
 --parameters googleClientSecret=$GOOGLE_CLIENT_SECRET  googleClientId=$GOOGLE_CLIENT_ID acrName=$ACR_NAME
 ```
 

@@ -56,6 +56,7 @@
 
    - Make sure you have installed  Azure cli in your local workstation
    - Ensure you have an active  Microsoft Azure  Account
+   - Ensure your cli is using latest Bicep version or not by running the command **az bicep  version**
 
 
 

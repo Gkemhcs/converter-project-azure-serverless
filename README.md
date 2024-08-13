@@ -52,6 +52,13 @@
 **Download page**
 !["download page"](./images/Download-page.png)
 
+#### ⚠️ Requirements to Deploy the Project :
+
+   - Make sure you have installed  Azure cli in your local workstation
+   - Ensure you have an active  Microsoft Azure  Account
+
+
+
 
 #### Steps to deploy 
 - **Step1**: First clone this repo to your local workstation 
